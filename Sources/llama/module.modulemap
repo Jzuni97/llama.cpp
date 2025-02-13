@@ -1,4 +1,4 @@
-module llama [system] {
+module llama {
     header "llama.h"
     link "llama"
     export *
