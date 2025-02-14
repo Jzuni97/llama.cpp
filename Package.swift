@@ -72,6 +72,12 @@ cSettings.append(
 #if os(Linux)
     cSettings.append(.define("_GNU_SOURCE"))
 #endif
+#if targetEnvironment(simulator)
+    cSettings.append(
+        .define("GGML_METAL_MAX_BUFFERS", to: 14),
+        .define("GGML_METAL_MAX_COMMAND_BUFFERS", to: 6)
+    )
+#endif
 
 let package = Package(
     name: "llama",
